@@ -12,7 +12,7 @@ class ListViewModel : ViewModel() {
     private val compositeDisposable = CompositeDisposable()
     val appsLiveData = MutableLiveData<List<App>>()
     val isRetryShowedLiveEvent = SingleLiveEvent<Unit>()
-    val isActionShowedLiveEvent = SingleLiveEvent<Unit>()
+    val isActionShowedLiveEvent = SingleLiveEvent<App>()
 
     init {
         loadApps()
@@ -22,8 +22,12 @@ class ListViewModel : ViewModel() {
         loadApps()
     }
 
-    fun onAppClick() {
-        isActionShowedLiveEvent.call()
+    fun onAppClick(app: App) {
+        isActionShowedLiveEvent.value = app
+    }
+
+    fun onDownloadAppClick(app: App) {
+        // скачать файл приложения
     }
 
     private fun loadApps() {

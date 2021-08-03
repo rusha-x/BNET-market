@@ -22,7 +22,7 @@ class AppsAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val app = apps[position]
         holder.itemView.setOnClickListener() {
-            viewModel.onAppClick()
+            viewModel.onAppClick(app)
         }
         holder.appText.text = app.name
 //        Glide.with(holder.itemView.context).load(app.url).into(holder.crossImage)

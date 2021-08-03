@@ -40,15 +40,15 @@ class ListFragment : Fragment(R.layout.fragment_list) {
                 .show()
         }
 
-        listViewModel.isActionShowedLiveEvent.observe(viewLifecycleOwner) {
+        listViewModel.isActionShowedLiveEvent.observe(viewLifecycleOwner) { app ->
             AlertDialog.Builder(requireContext())
                 .setTitle("Действие")
                 .setMessage("Что сделать")
-                . setNeutralButton("Отмена") { _, _ ->
+                .setNeutralButton("Отмена") { _, _ ->
 
                 }
                 .setPositiveButton("Скачать") { _, _ ->
-
+                    listViewModel.onDownloadAppClick(app)
                 }
                 .setNegativeButton("Запустить") { _, _ ->
 
