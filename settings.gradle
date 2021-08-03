@@ -1,0 +1,2 @@
+rootProject.name = "BNET-market"
+include ':app'
